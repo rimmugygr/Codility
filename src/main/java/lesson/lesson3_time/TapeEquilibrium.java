@@ -1,5 +1,7 @@
 package lesson.lesson3_time;
 
+import java.util.Arrays;
+
 /**
  *
  * A non-empty array A consisting of N integers is given. Array A represents numbers on a tape.
@@ -49,27 +51,59 @@ package lesson.lesson3_time;
 public class TapeEquilibrium {
     public static void main(String[] args) {
 
-        int[] x={11,-1,4,-3,0};
-        System.out.println(solution(x));
+        int[] x={-1,4,4,4,-4,4,4,434,-2,-2,3,-5};
+        System.out.println(solutionVer1(x)+"<<<");
+
+//        System.out.println(solutionVer2(x)+"<<<<");
     }
-    public static int solution(int[] N) {
+
+//    // incomplite, errror,pomija pewne zaleznosci
+//    public static int solutionVer2(int[] N) {
+//        int sumA=N[0];
+//        int sumB=N[N.length-1];
+//        //System.out.println(sumA+" "+sumB);
+//        for (int i = 0, k=1, j=N.length-2 ; i < N.length-2 ; i++) {
+//            if (sumA < sumB) {// ktorą ze stron zwiększyć
+//                if (N[k]<0) sumB +=N[j--];//czy ujemna liczba
+//                else sumA += N[k++];
+//            }
+//            else {
+//                if (N[j]<0) sumA += N[k++];//czy ujemna liczba
+//                else sumB +=N[j--];
+//            }
+//            //System.out.println(sumA+" "+sumB);
+//        }
+//        return Math.abs(sumA-sumB);
+//    }
 
 
-
-        int sumA=N[0];
-        int sumB=N[N.length-1];
-        System.out.println(sumA+" "+sumB);
-        for (int i = 0, k=1, j=N.length-2 ; i < N.length-2 ; i++) {
-            if (sumA < sumB) {// ktorą ze stron zwiększyć
-                if (N[k]<0) sumB +=N[j--];//czy ujemna liczba
-                sumA += N[k++];
-            }
-            else {
-                if (N[j]<0) sumA += N[k++];//czy ujemna liczba
-                else sumB +=N[j--];
-            }
-            System.out.println(sumA+" "+sumB);
+    public static int solutionVer1(int[] n) {
+        int[] sumA= new int[n.length];
+        int[] sumB= new int[n.length];
+        int sum=0;
+        for (int i = 0; i < sumA.length; i++) {
+            sumA[i]=n[i]+sum;
+            sum=sumA[i];
         }
-        return Math.abs(sumA-sumB);
+        sum=0;
+        for (int i = sumB.length - 1; i >= 0; i--) {
+            sumB[i]=n[i]+sum;
+            sum=sumB[i];
+        }
+        sum=Integer.MAX_VALUE;
+        for (int i = 0; i < sumA.length-1; i++) {
+            int abs = Math.abs(sumA[i] - sumB[i+1]);
+            if(abs <sum)
+                sum= abs;
+        }
+
+
+        System.out.println(Arrays.toString(sumA));
+        System.out.println(Arrays.toString(sumB));
+
+
+        return sum;
     }
+
+
 }
