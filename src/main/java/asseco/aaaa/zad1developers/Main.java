@@ -41,7 +41,7 @@ public class Main {
     static List<List<Integer>> result = new ArrayList<>();
     static int f;
     static int k;
-    static int[] r = new int[50000];
+    static int[] r = new int[100];
     {
         r[0]=0;
     }
@@ -50,9 +50,9 @@ public class Main {
 
 
 
-        int[] A = {4};
-        int[] B = {2};
-        int F = 0;
+        int[] A = {4,4,4,4,4,4};
+        int[] B = {2,4,4,4,4,4};
+        int F = 4;
 
         System.out.println(solution(A,B,F));
 
@@ -136,7 +136,10 @@ public class Main {
             System.out.println("x"+ temp);
             if(temp>number)number=temp;
         }
-
+        if(result.isEmpty())
+            for (int i : B) {
+            number+=i;
+        }
 
 
 
