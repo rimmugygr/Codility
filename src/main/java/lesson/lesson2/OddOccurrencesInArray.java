@@ -1,4 +1,9 @@
 package lesson.lesson2;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * A non-empty array A consisting of N integers is given. The array contains an odd number of elements,
  * and each element of the array can be paired with another element that has the same value,
@@ -38,9 +43,30 @@ package lesson.lesson2;
 public class OddOccurrencesInArray {
     public static void main(String[] args) {
         int[] A={7,2,2,7,7,2,2,7,7,2,2,7,7,2,2,7,7,2,2,7,7,2,2,7,7,2,2,7,1};
-        System.out.println(solution(A));
+        System.out.println(solutionOnArray(A));
+        System.out.println(solutionOnList(A));
     }
-    public static int solution(int[] A) {
+
+
+    //HasSet<> so fast !!!!!!!!!!!
+    private static int solutionOnList(int[] a) {
+
+        Set<Integer> tab= new HashSet<>();
+        for (int i : a) {
+            if(tab.contains(i)) tab.remove(i);
+            else tab.add(i);
+        }
+        
+        int result = 0;
+        for (Integer integer : tab) {
+            result=integer;
+        }
+
+        return result;
+    }
+
+    //to slow
+    public static int solutionOnArray(int[] A) {
         int result = 0;
         boolean flagIsParied;
         for (int i = 0; i < A.length; i++) {
