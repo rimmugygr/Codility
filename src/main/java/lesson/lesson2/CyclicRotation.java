@@ -68,15 +68,11 @@ public class CyclicRotation {
             for (int i= 1;i<A.length;i++){
                 result[i]=temp[i-1];
             }
-            System.out.println(Arrays.toString(result));
-            System.out.println(Arrays.toString(temp));
+
             result[0]=temp[A.length-1];
             for (int i = 0; i < temp.length; i++) {
                 temp[i]=result[i];
             }
-            System.out.println(Arrays.toString(result) + "<<<<");
-            System.out.println(Arrays.toString(temp) + "<<<<");
-
             K--;
         }
 
