@@ -1,4 +1,4 @@
-package asseco.aaaa.zad1developers;
+package asseco.developers;
 
 
 /*A company has employed N developers (numbered from 0 to N−1) and wants to divide them into two teams.
@@ -37,7 +37,7 @@ F is an integer within the range [0..N].*/
 
 import java.util.*;
 
-public class Main {
+public class Developres {
     static List<List<Integer>> result = new ArrayList<>();
     static int f;
     static int k;

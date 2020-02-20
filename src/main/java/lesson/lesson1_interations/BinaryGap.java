@@ -1,4 +1,4 @@
-package lesson.lesson1;
+package lesson.lesson1_interations;
 
 
 /*A binary gap within a positive integer N is any maximal sequence of consecutive zeros that is surrounded by ones

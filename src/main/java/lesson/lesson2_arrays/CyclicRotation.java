@@ -1,4 +1,4 @@
-package lesson.lesson2;
+package lesson.lesson2_arrays;
 
 /*
 An array A consisting of N integers is given. Rotation of the array
@@ -47,7 +47,6 @@ that, given an array A consisting of N integers and an integer K, returns the ar
 */
 
 
-import javax.swing.*;
 import java.util.Arrays;
 
 public class CyclicRotation {

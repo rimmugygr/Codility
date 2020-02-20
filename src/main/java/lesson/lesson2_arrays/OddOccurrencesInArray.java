@@ -1,6 +1,5 @@
-package lesson.lesson2;
+package lesson.lesson2_arrays;
 
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
