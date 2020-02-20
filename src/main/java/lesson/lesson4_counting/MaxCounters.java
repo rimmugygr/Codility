@@ -62,20 +62,20 @@ import java.util.Arrays;
  * */
 public class MaxCounters {
     public static void main(String[] args) {
-        int X= 1;
-        int[]A=new int[1];
+        int X= 5;
+        int[]A=new int[8];
         A[0] = 2;
-//        A[1] = 3;
-//        A[2] = 1;
-//        A[3] = 4;
-//        A[4] = 2;
-//        A[5] = 6;
-//        A[6] = 5;
-//        A[7] = 4;
-        System.out.println(Arrays.toString(solution(X,A)));
+        A[1] = 3;
+        A[2] = 1;
+        A[3] = 4;
+        A[4] = 2;
+        A[5] = 6;
+        A[6] = 6;
+        A[7] = 5;
+        System.out.println(Arrays.toString(solutionArrayFill(X,A))+"<<<");
+        System.out.println(Arrays.toString(solutionVector(X,A))+"<<<<");
     }
-
-    public static int[] solution(int range, int[] tab) {                //tab[] value 1..range+1
+    public static int[]  solutionArrayFill(int range, int[] tab) {                //tab[] value 1..range+1
         int[] result=new int[range];                       //result [0...range-1] lenght=range
         int max=0;
         for (int input : tab) {
@@ -83,8 +83,31 @@ public class MaxCounters {
                 Arrays.fill(result, max);
             } else if (++result[input-1]>max) ++max;
 
-            System.out.println(Arrays.toString(result) + input + " " + max);
         }
+        return result;
+    }
+
+
+    public static int[] solutionVector(int range, int[] tab) {                //tab[] value 1..range+1
+        int[] result=new int[range];                       //result [0...range-1] lenght=range
+        int vectorResult=0;
+        int max=0;
+        for (int input : tab) {
+            if(input==range+1) {//warunek maksowania
+                if(max!=0) {//jesli poprzednio maksowanie to nie rob
+                    result = new int[range];
+                    vectorResult += max;
+                    max = 0;
+                }
+            } else if (++result[input-1]>max) ++max;
+
+            System.out.println(Arrays.toString(result) + input + " M:" + max + " V:"+ vectorResult);
+        }
+        for (int i = 0; i < result.length; i++) {
+            result[i]+=vectorResult;
+        }
+
+
         return result;
     }
 }
