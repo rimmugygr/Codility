@@ -1,7 +1,5 @@
 package lesson.lesssn5_prefix_sums;
 
-import java.util.Arrays;
-
 /**
  * Write a function:
  *
@@ -22,14 +20,44 @@ import java.util.Arrays;
 public class CountDiv {
 
     public static void main(String[] args) {
-
-        int a=0;
-        int b=7;
+ //[6, 11, 2]
+        int a=1;
+        int b=14;
         int k=2;
+        System.out.println(solutionModuloInFor(a,b,k)+"<<<");
+        System.out.println(solutionMultiply(a,b,k)+"<<");
         System.out.println(solution(a,b,k)+"<<<");
     }
-    public static int  solution(int a,int b, int k) {
-
-        return 1;
+    public static int solutionModuloInFor(int a, int b, int k) {
+        int number=0;
+        for (int i = a ; i <= b ; i++) {
+            if(i%k==0)number++;
+        }
+        return number;
     }
+    public static int  solutionMultiply(int a,int b, int k) {
+        if (k == 1 || a==0&&b==0) return b-a+1;
+        if (k > b) return 0;
+        int result = 0;
+        long number = (a/k) ;
+        if (a%k == 0) result++;
+        while ((++number)*k <= b){
+            result++;
+        }
+        return result;
+    }
+    public static int  solution(int a,int b, int k) {
+        if (k == 1 || a==0&&b==0) return b-a+1;
+        if (k > b) return 0;
+        int number=b/k - a/k;
+        if(a%k==0)number++;
+
+
+        return number;
+    }
+
+
+
+
+
 }
