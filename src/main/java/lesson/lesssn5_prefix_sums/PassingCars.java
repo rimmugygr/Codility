@@ -82,6 +82,8 @@ public class PassingCars {
         int result=0;
         for (int i = 0; i < eastCar; i++) {
             result+=resultTab[i];
+            if(result>1_000_000_000)return-1;
+
         }
 
         return result;
