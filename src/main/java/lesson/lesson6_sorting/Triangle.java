@@ -1,6 +1,8 @@
 package lesson.lesson6_sorting;
 
 
+import java.util.Arrays;
+
 /**
  * An array A consisting of N integers is given. A triplet (P, Q, R) is triangular if 0 ≤ P < Q < R < N and:
  *
@@ -52,7 +54,15 @@ public class Triangle {
     }
     public static int  solution(int[] tabInput) {
 
+        Arrays.sort(tabInput);
+        if (tabInput.length < 3) return 0;
+        LOG.info(Arrays.toString(tabInput));
+
+        for (int i = 0; i < tabInput.length -2; i++) {
+            if (tabInput[i] > tabInput[i + 2] - tabInput[i + 1]) return 1;
+        }
 
         return 0;
     }
+
 }
