@@ -91,4 +91,32 @@ public class MinAvgTwoSlice {
         return result;
     }
 
+    public static int solution(int[] input) {
+
+        double minumAvarage = 100000;
+        int index=0;
+
+        if (input.length<=2) return 0;
+
+        for(int i=0;i<input.length-2;i++) {
+
+            if((input[i]+input[i+1])/2.0<minumAvarage) {
+                minumAvarage=(input[i]+input[i+1])/2.0;
+                index=i;
+            }
+
+            if((input[i]+input[i+1]+input[i+2])/3.0<minumAvarage)  {
+
+                minumAvarage=(input[i]+input[i+1]+input[i+2])/3.0;
+                index=i;
+            }
+        }
+
+        int max = input.length-2;
+
+        if((input[max] + input[max+1]) /2.0 < minumAvarage) index=max;
+
+        return index;
+    }
+
 }

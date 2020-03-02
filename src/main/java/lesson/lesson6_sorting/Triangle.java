@@ -1,6 +1,8 @@
 package lesson.lesson6_sorting;
 
 
+import org.apache.log4j.Logger;
+
 import java.util.Arrays;
 
 /**
@@ -38,7 +40,7 @@ import java.util.Arrays;
  */
 
 public class Triangle {
-    protected final static org.apache.log4j.Logger LOG= org.apache.log4j.Logger.getLogger(Triangle.class);
+    protected final static Logger LOG= Logger.getLogger(Triangle.class);
     public static void main(String[] args) {
         int[] A1 = new int[6];
         A1[0] = 10;    A1[1] = 2;    A1[2] = 5;

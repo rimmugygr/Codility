@@ -1,14 +1,18 @@
 package lesson.lesson6_sorting;
 
 
+import org.apache.log4j.Logger;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 /**
- * We draw N discs on a plane. The discs are numbered from 0 to N − 1. An array A of N non-negative integers, specifying the radiuses of the discs, is given. The J-th disc is drawn with its center at (J, 0) and radius A[J].
+ * We draw N discs on a plane. The discs are numbered from 0 to N − 1. An array A of N non-negative integers,
+ * specifying the radiuses of the discs, is given. The J-th disc is drawn with its center at (J, 0) and radius A[J].
  *
- * We say that the J-th disc and K-th disc intersect if J ≠ K and the J-th and K-th discs have at least one common point (assuming that the discs contain their borders).
+ * We say that the J-th disc and K-th disc intersect if J ≠ K and the J-th and K-th discs have at least one
+ * common point (assuming that the discs contain their borders).
  *
  * The figure below shows discs drawn for N = 6 and A as follows:
  *
@@ -28,7 +32,8 @@ import java.util.List;
  *
  * class Solution { public int solution(int[] A); }
  *
- * that, given an array A describing N discs as explained above, returns the number of (unordered) pairs of intersecting discs. The function should return −1 if the number of intersecting pairs exceeds 10,000,000.
+ * that, given an array A describing N discs as explained above, returns the number of (unordered) pairs of
+ * intersecting discs. The function should return −1 if the number of intersecting pairs exceeds 10,000,000.
  *
  * Given array A shown above, the function should return 11, as explained above.
  *
@@ -39,7 +44,7 @@ import java.util.List;
  */
 
 public class NumberOfDiscIntersections {
-    protected final static org.apache.log4j.Logger LOG= org.apache.log4j.Logger.getLogger(NumberOfDiscIntersections.class);
+    protected final static Logger LOG= Logger.getLogger(NumberOfDiscIntersections.class);
     public static void main(String[] args) {
         int[] A = new int[6];
         A[0] = 1;
