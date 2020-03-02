@@ -1,6 +1,4 @@
-package lesson.lesssn5_prefix_sums;
-
-import java.util.Arrays;
+package lesson.lesson5_prefix_sums;
 
 /**
  * A non-empty array A consisting of N integers is given. A pair of integers (P, Q), such that 0 ≤ P < Q < N,

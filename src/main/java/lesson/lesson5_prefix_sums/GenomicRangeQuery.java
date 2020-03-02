@@ -1,4 +1,4 @@
-package lesson.lesssn5_prefix_sums;
+package lesson.lesson5_prefix_sums;
 
 import java.util.Arrays;
 

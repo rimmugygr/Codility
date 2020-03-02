@@ -1,8 +1,7 @@
-package lesson.lesssn5_prefix_sums;
+package lesson.lesson5_prefix_sums;
 
 
 import java.util.*;
-import java.util.logging.Logger;
 
 /**
  * A non-empty array A consisting of N integers is given.
