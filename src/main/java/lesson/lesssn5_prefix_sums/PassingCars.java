@@ -62,7 +62,6 @@ public class PassingCars {
         int[] resultTab = new int[tabInput.length];
         int eastCar = 0;
         int westCar = 0;
-       // int temp = 100_000;
         for (int i = tabInput.length - 1; i >= 0; i--) {
             if (tabInput[i]==0){
                 resultTab[eastCar]=westCar;
@@ -74,7 +73,6 @@ public class PassingCars {
             LOG.info("****");
             LOG.info(eastCar);
             LOG.info(westCar);
-          //  LOG.info(temp);
             LOG.info(Arrays.toString(resultTab));
 
 
