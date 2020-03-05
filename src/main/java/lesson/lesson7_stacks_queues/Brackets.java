@@ -3,7 +3,11 @@ package lesson.lesson7_stacks_queues;
 
 import org.apache.log4j.Logger;
 
+import javax.management.Query;
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
 
 /**
  * A string S consisting of N characters is considered to be properly nested if any of the following conditions is true:
@@ -33,18 +37,32 @@ public class Brackets {
         String sTrue = "{[()()]}";
         String sFalse = "([)()]";
 
-        LOG.info(solution(sFalse)+"<<<");
+       // LOG.info(solution(sFalse)+"<<<");
         LOG.info(solution(sTrue)+"<<<");
 
 
     }
     public static int  solution(String string) {
-        if (string.length()==0) return 0;
-        char[] tabOpen = {'{','[','('};
-        char[] tabClose = {'}',']',')'};
-        for (int i = 0; i < tabOpen.length; i++) {
-            if (string.charAt(0)==tabOpen[i]&string.charAt(string.length()-1)==tabClose[i]) return 1;
+        if (string.length()==0) return 1;
+        Stack<Character> stack = new Stack<>();
+
+        char elementString;
+        char elementTop;
+        for (int i = 0; i < string.length() ; i++) {
+            elementString=string.charAt(i);
+            if(elementString=='{' || elementString=='[' || elementString=='(') stack.add(elementString);
+            else {
+                if(stack.isEmpty()) return 0;
+                elementTop=stack.pop();
+                if ((elementString=='}' && elementTop!='{') ||
+                        (elementString==']' && elementTop!='[') ||
+                        (elementString==')' && elementTop!='(') ){
+                    return 0;
+                }
+            }
+            LOG.info(Arrays.toString(stack.toArray()) + ' ' + elementString);
         }
+        if (stack.isEmpty()) return 1;
         return 0;
     }
 
