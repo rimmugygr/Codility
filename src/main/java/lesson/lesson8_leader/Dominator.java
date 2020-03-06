@@ -61,6 +61,7 @@ public class Dominator {
         if (inputTab.length==0||inputTab.length==2) return -1;
         if (inputTab.length==1) return 0;
         Arrays.sort(inputTab);
+
         int count=0;
         int value=inputTab[inputTab.length/2];
         for (int i = inputTab.length/2; i < inputTab.length; i++) {
