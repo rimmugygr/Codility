@@ -72,21 +72,19 @@ public class MaxDoubleSliceSum {
         int sum=0;
         for (int i = 1; i < input.length-2; i++) {
             sum=0;
-            System.out.print("A="+ (i-1));
+            //System.out.print("A="+ (i-1));
             for (int j = i ; j < input.length -1; j++) {
-                sum+=input[j];
-                System.out.print( "["+input[j]+"] ");
-                if(j>=(i+1)){
-                    for (int k = i  ; k <= j ; k++) {
-                        maxDoubleSum=Math.max(sum-input[k],maxDoubleSum);
-                        System.out.print(input[k]+" ");
-                    }
+                sum+=input[j];//suma (A...C)
+                //System.out.print( "["+input[j]+"] ");
+                for (int k = i  ; k <= j ; k++) {// każdy przypadek z (A...B...C) dla danego (A...C)
+                    maxDoubleSum=Math.max(sum-input[k],maxDoubleSum);//zapamietaj największy wynik
+                    //System.out.print(input[k]+" ");
                 }
-                System.out.print("B="+ (j+1));
+                //System.out.print("B="+ (j+1));
             }
-            System.out.println();
+            //System.out.println();
         }
-        if(maxDoubleSum<0)return 0;
+        if(maxDoubleSum<0)return 0;//wynik zawsze >0
         return maxDoubleSum;
     }
 
