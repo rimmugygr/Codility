@@ -3,6 +3,8 @@ package lesson.lesson9_maximum_slice_problem;
 
 import org.apache.log4j.Logger;
 
+import java.util.Arrays;
+
 /**
  * A non-empty array A consisting of N integers is given. A pair of integers (P, Q), such that 0 ≤ P ≤ Q < N,
  * is called a slice of array A. The sum of a slice (P, Q) is the total of A[P] + A[P+1] + ... + A[Q].
@@ -43,11 +45,50 @@ public class MaxSliceSum {
         A[4] = 0;
         LOG.info(solutionV1(A));
         LOG.info(solutionV1(new int[]{1,-1}));
+        LOG.info(solutionV3(new int[]{-1,-1}));
         LOG.info(solutionV1(new int[]{1,2,3}));
-        LOG.info("===========");
+        LOG.info("====Version2=====");
         LOG.info(solutionV2(A));
         LOG.info(solutionV2(new int[]{1,-1}));
+        LOG.info(solutionV3(new int[]{-1,-1}));
         LOG.info(solutionV2(new int[]{1,2,3}));
+        LOG.info("=======Version3====");
+        LOG.info(solutionV3(A));
+        LOG.info(solutionV3(new int[]{1,-1}));
+        LOG.info(solutionV3(new int[]{-1,-1}));
+        LOG.info(solutionV3(new int[]{1,2,3}));
+    }
+    public static int solutionV3(int[] input) {
+        //dla 1 elentu suma zwsze warością tego elementu
+        if (input.length == 1) return input[0];
+
+        //suma elementów od lewej
+        int[] leftSum = new int[input.length];
+        leftSum[0] = input[0];
+        for (int i = 1; i < leftSum.length; i++) {
+            leftSum[i] = +leftSum[i - 1] + input[i];
+        }
+
+      //  LOG.info(Arrays.toString(leftSum));
+
+
+        int actualSum = leftSum[0];
+        int minSum = leftSum[0];
+        int maxSum = actualSum;
+
+        for (int i = 1; i < input.length; i++) {
+            actualSum = leftSum[i];//suma elemntów do i-tego elementu
+            if (maxSum < actualSum) maxSum = actualSum;//czy to największa suma
+
+            if (minSum > leftSum[i-1]) minSum = leftSum[i-1];//zapamietujemy najmniejsza sume
+            actualSum = leftSum[i]-minSum;//suma elemntów minus najmniejszy po warości przedział
+            if (maxSum < actualSum) maxSum = actualSum;//czy to największa suma
+
+  //          LOG.info(minSum+" "+maxSum + " " + actualSum );
+
+        }
+
+        return maxSum;
     }
 
     public static int solutionV2(int[] input) {
