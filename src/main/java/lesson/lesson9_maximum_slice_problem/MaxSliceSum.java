@@ -57,13 +57,14 @@ public class MaxSliceSum {
         LOG.info(solutionV3(new int[]{1,-1}));
         LOG.info(solutionV3(new int[]{-1,-1}));
         LOG.info(solutionV3(new int[]{1,2,3}));
+        LOG.info(solutionV3(new int[]{-1,-2,-3,-4,-5,-6}));
     }
     public static int solutionV3(int[] input) {
         //dla 1 elentu suma zwsze warością tego elementu
         if (input.length == 1) return input[0];
 
         //suma elementów od lewej
-        int[] leftSum = new int[input.length];
+        long[] leftSum = new long[input.length];
         leftSum[0] = input[0];
         for (int i = 1; i < leftSum.length; i++) {
             leftSum[i] = +leftSum[i - 1] + input[i];
@@ -72,9 +73,9 @@ public class MaxSliceSum {
       //  LOG.info(Arrays.toString(leftSum));
 
 
-        int actualSum = leftSum[0];
-        int minSum = leftSum[0];
-        int maxSum = actualSum;
+        long actualSum = leftSum[0];
+        long minSum = leftSum[0];
+        long maxSum = actualSum;
 
         for (int i = 1; i < input.length; i++) {
             actualSum = leftSum[i];//suma elemntów do i-tego elementu
@@ -88,7 +89,7 @@ public class MaxSliceSum {
 
         }
 
-        return maxSum;
+        return(int) maxSum;
     }
 
     public static int solutionV2(int[] input) {
