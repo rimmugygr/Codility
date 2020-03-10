@@ -70,9 +70,6 @@ public class MaxSliceSum {
             leftSum[i] = +leftSum[i - 1] + input[i];
         }
 
-      //  LOG.info(Arrays.toString(leftSum));
-
-
         long actualSum = leftSum[0];
         long minSum = leftSum[0];
         long maxSum = actualSum;
@@ -84,8 +81,6 @@ public class MaxSliceSum {
             if (minSum > leftSum[i-1]) minSum = leftSum[i-1];//zapamietujemy najmniejsza sume
             actualSum = leftSum[i]-minSum;//suma elemntów minus najmniejszy po warości przedział
             if (maxSum < actualSum) maxSum = actualSum;//czy to największa suma
-
-  //          LOG.info(minSum+" "+maxSum + " " + actualSum );
 
         }
 
