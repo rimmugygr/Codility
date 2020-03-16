@@ -84,8 +84,7 @@ public class MaxDoubleSliceSum {
             }
             //System.out.println();
         }
-        if(maxDoubleSum<0)return 0;//wynik zawsze >0
-        return maxDoubleSum;
+        return Math.max(maxDoubleSum, 0);//wynik zawsze >0
     }
 
 
